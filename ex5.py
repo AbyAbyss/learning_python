@@ -1,4 +1,4 @@
-#Trying ex5.py on python3
+#ex5.py 
 my_name = 'ABYSS'
 my_age = 21
 my_height = 6.2 #feet
