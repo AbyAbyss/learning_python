@@ -1,4 +1,4 @@
-#ex4.py done in python3
+#Tring ex4.py on python3
 cars = 100
 space_in_a_car = 4.0
 drivers = 30
