@@ -1,4 +1,4 @@
-print "Hello World!"
-print "Hi there"
-#pritn "Commented"
-print "Another line"
+print("Hello World!")
+print("Hi there")
+# pritn "Commented"
+print("Another line")
