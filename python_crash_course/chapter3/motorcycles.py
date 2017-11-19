@@ -53,9 +53,21 @@ first_pop = motorcycles.pop(0)
 print("The first motorcycle I owned was a " + first_pop.title() + ".")
 
 
-# Remove item by value
+# Remove item by value using .remove(<item>)
 
 motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
 print(motorcycles)
 motorcycles.remove('ducati')
 print(motorcycles)
+
+
+# other example for remove(<item>)
+
+motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
+print(motorcycles)
+too_expensive = 'ducati'
+motorcycles.remove(too_expensive)
+print(motorcycles)
+print("\nA " + too_expensive.title() + " is too expensive")
+
+# NOTE: the remove() will only remove the first accurrence of the value... We will need to use loops to remove more than one

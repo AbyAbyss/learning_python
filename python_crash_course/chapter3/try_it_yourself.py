@@ -27,3 +27,38 @@ my_likes = ['car', 'bike', 'plane']
 
 for i in my_likes:
     print('I would like to own a ' + i + '.')
+
+
+# 3.4 Guest List
+
+guests = ['aby', 'abyss', 'kiddo']
+# prints the persons invited
+for i in guests:
+    print("Hey, " + i.title() + " please come to the party.")
+
+
+# 3.5 Changing guests list
+
+# abyss cant make it
+print(guests.pop(1).title() + " cant make it\n")
+
+# adding new member
+guests.insert(1, 'sanju')
+# printing the persons invited
+for i in guests:
+    print("Hey, " + i.title() + " please come to the party.")
+
+
+# 3.6 More Guests
+
+print("Found a bigger table\n")
+
+# adding more members
+guests.insert(0, 'aish')
+guests.insert(int(len(guests) / 2), 'shy')
+guests.insert(len(guests), 'saji')
+
+# printing invites
+
+for i in guests:
+    print("Hey, " + i.title() + " please come to the party.")
