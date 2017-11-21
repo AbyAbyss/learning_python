@@ -7,6 +7,7 @@ def Articals():
             'author': 'Abyss',
             'create_date': '19-11-2017'
         },
+
         {
             'id': 2,
             'title': 'Artical Two',
@@ -14,6 +15,7 @@ def Articals():
             'author': 'Abyss',
             'create_date': '19-11-2017'
         },
+        
         {
             'id': 3,
             'title': 'Artical Three',

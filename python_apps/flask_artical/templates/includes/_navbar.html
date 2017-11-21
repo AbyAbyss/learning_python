@@ -1,16 +1,25 @@
-<nav class="navbar navbar-default">
-    <a class="navbar-brand" href="/">Articals App</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav nav">
+<nav class="navbar nav-default">
+      <a class="navbar-brand" href="/">Articals App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+     <div class="collapse navbar-collapse" id="navbar">
+       <ul class="navbar-nav nav">
+         <li>
+           <a href="/">Home</a>
+         </li>
+         <li>
+           <a href="/articals">Articals</a>
+         </li>
+         <li>
+           <a href="/about">About</a>
+         </li>
+      <ul class="nav navbar-right">
         <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a class="nav-link" href="/articals">Articals</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
+          <a href="/register">Register</a>
         </li>
       </ul>
-    </div>
-  </nav>
+     </div>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
