@@ -78,6 +78,19 @@ def register():
         # Create cursor
         cur = mysql.connection.cursor()
 
+
+#################################################################################
+        # unique user names
+        check_username = username
+        cur.execute("SELECT COUNT(username) FROM users WHERE username=%s", [check_username])
+        count_result = cur.fetchone()
+
+        app.logger.info(count_result['COUNT(username)'])
+        number_of_row = count_result['COUNT(username)']
+        if number_of_row > 0:
+            flash('Username not available', 'danger')
+            return redirect(url_for('register'))
+#################################################################################
         # query
         cur.execute("INSERT INTO users(name, email, username, password) VALUES(%s, %s, %s, %s)",
                     (name, email, username, password))
