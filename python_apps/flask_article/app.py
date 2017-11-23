@@ -235,13 +235,14 @@ def logout():
 def dashboard():
     # cursor
     cur = mysql.connection.cursor()
-
+    user_name = session['username']
     # get articles
-    result = cur.execute("SELECT * FROM articles")
+    result = cur.execute("SELECT * FROM articles WHERE author = %s", [user_name])
 
     articles = cur.fetchall()
 
     if result > 0:
+        app.logger.info(user_name)
         return render_template('dashboard.html', articles=articles)
     else:
         msg = 'No Articles Found'
