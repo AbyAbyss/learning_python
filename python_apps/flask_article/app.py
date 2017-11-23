@@ -1,5 +1,5 @@
 # importing Flask and render_tamplate:to use external files
-from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
+from flask import Flask, render_template, flash, redirect, url_for, session, request
 # from data import Articles    # user module
 from flask_mysqldb import MySQL  # pip install flask-mysql
 # pip install Flask-WTF for using with form
@@ -288,6 +288,68 @@ def add_article():
         return redirect(url_for('dashboard'))
 
     return render_template('add_article.html', form=form)
+###############################################################################
+
+
+###############################################################################
+# Edit article
+################
+@app.route('/edit_article/<string:id>', methods=['GET', 'POST'])
+@is_logged_in
+def edit_article(id):
+    # cursor
+    cur = mysql.connection.cursor()
+    # Get article
+    cur.execute("SELECT * FROM articles WHERE id = %s", [id])
+    article = cur.fetchone()
+
+    # get form
+    form = ArticleForm(request.form)
+
+    form.title.data = article['title']
+    form.body.data = article['body']
+
+    if request.method == 'POST' and form.validate():
+
+        # ##############normal request method###############
+        title = request.form['title']
+        body = request.form['body']
+        # ##################################################
+        # getting cursor
+        cur = mysql.connection.cursor()
+
+        # execute
+        cur.execute("UPDATE articles SET title=%s, body=%s WHERE id = %s", (title, body, id))
+
+        # committing the changes
+        mysql.connection.commit()
+
+        # close
+        cur.close()
+
+        flash('Article Updated', 'success')
+
+        return redirect(url_for('dashboard'))
+
+    return render_template('edit_article.html', form=form)
+###############################################################################
+
+
+###############################################################################
+# Delete Article
+################
+@app.route('/delete_article/<string:id>', methods=['POST'])
+@is_logged_in
+def delete_article(id):
+    cur = mysql.connection.cursor()
+
+    cur.execute("DELETE FROM articles WHERE id = %s", [id])
+
+    mysql.connection.commit()
+
+    cur.close()
+    flash('Article Deleted', 'success')
+    return redirect(url_for('dashboard'))
 ###############################################################################
 
 
