@@ -1,6 +1,6 @@
 # importing Flask and render_tamplate:to use external files
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
-from data import Articals    # user module
+from data import Articles    # user module
 from flask_mysqldb import MySQL  # pip install flask-mysql
 # pip install Flask-WTF for using with form
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
@@ -15,13 +15,13 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '!2abyabyss'
-app.config['MYSQL_DB'] = 'artical_app'
+app.config['MYSQL_DB'] = 'article_app'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 mysql = MySQL(app)
 
 # external data.py
-Articals = Articals()
+Articles = Articles()
 
 
 # root
@@ -35,18 +35,18 @@ def index():
 def about():
     return render_template('about.html')
 
-# goings to /articals and also sends the data from artical
+# goings to /articles and also sends the data from article
 
 
-@app.route('/articals')
-def articals():
-    return render_template('articals.html', articals=Articals)
+@app.route('/articles')
+def articles():
+    return render_template('articles.html', articles=Articles)
 
 
 # takes id and uses it and pass it so that it can display on the page
-@app.route('/artical/<string:id>/')
-def artical(id):
-    return render_template('artical.html', id=id)
+@app.route('/article/<string:id>/')
+def article(id):
+    return render_template('article.html', id=id)
 
 
 ###############################################################################
