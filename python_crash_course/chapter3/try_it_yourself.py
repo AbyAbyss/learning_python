@@ -62,3 +62,20 @@ guests.insert(len(guests), 'saji')
 
 for i in guests:
     print("Hey, " + i.title() + " please come to the party.")
+
+
+# 3.7 Shrinking Guest List
+
+print("I can invite only two people to the party")
+print(guests)
+while len(guests) > 2:
+	pop_guest = guests.pop()
+	print("Sorry %s I won't be able to invite you" % pop_guest.title())
+
+for i in guests:
+	print("Hey, ", i.title(), "please come to the party.")
+
+for i in range(len(guests)):
+	del guests[0]
+
+print(guests)
