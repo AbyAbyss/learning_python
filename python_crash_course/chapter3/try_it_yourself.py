@@ -1,3 +1,6 @@
+# Chapter 3
+
+
 # 3.1 Names:
 
 names = ['aby', 'abyss', 'sanju', 'kiddo']
@@ -75,7 +78,45 @@ while len(guests) > 2:
 for i in guests:
 	print("Hey, ", i.title(), "please come to the party.")
 
+
 for i in range(len(guests)):
 	del guests[0]
 
 print(guests)
+
+########################################################################
+# 3.8 Seeing the world
+print("\n############################Next Part############################")
+places = ['japan', 'usa', 'germany', 'singapore', 'india']
+print(places)
+
+# Using sorted()
+print("List in sorted order: ", sorted(places))
+
+print("\nList is still in original order: ", places)
+
+# using soted() to print list in reverse order
+print("\nList in sorted-reverse order: ", sorted(places, reverse=True))
+
+print("\nList is still in original order: ", places)
+
+# Using reverse to permanently  changing the order of the list
+places.reverse()
+print("\nList in reverse order: ", places)
+
+# changing back to original order
+places.reverse()
+print("\nList in original order: ", places)
+
+# using sort() method
+places.sort()
+print("\nList in reverse order: ", places)
+
+# using sort() to reverse the order of the sorted list
+places.sort(reverse=True)
+print("\nList in reverse order: ", places)
+
+
+# 3.9 Dinner Guests using exe 3.4 - 3.7 using len()
+
+print("\nNumber of people visiting dinner party is: ", len(guests))
