@@ -4,7 +4,7 @@ students = []
 def get_student():
     student_title_case = []
     for student in students:
-        student_title_case = student["name"].title()   # student_title_case.append(student["name"].title())
+        student_title_case.append(student["name"].title())
     return student_title_case
 
 
@@ -38,16 +38,16 @@ def save_file(student):
 def read_file():
     try:
         f = open("students.txt", "r")
-        for student in f.readline():
+        for student in f.readlines():
             add_student(student)
         f.close()
     except Exception:
         print("Could not read file")
 
 
-student_list = get_student()
 # var_args("Mark", description="Loves Python", feedback=None)
-
+"""
+# code to repeate
 while True:
     option = input("Do you want to add a student: ")
     if option == "yes":
@@ -56,6 +56,13 @@ while True:
         add_student(student_name, student_id)
     else:
         break
+"""
 
-
+read_file()
 print_student()
+
+student_name = input("Enter student name: ")
+student_id = input("Enter student ID: ")
+
+add_student(student_name, student_id)
+save_file(student_name)
