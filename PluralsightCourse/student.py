@@ -5,7 +5,7 @@ class Student:
 
 	school_name = "An International School"
 
-	def __init__(self, name, last_name, student_id=331):
+	def __init__(self, name, last_name="N/A", student_id=331):
 		self.name = name
 		self.student_id = student_id
 		self.last_name = last_name
