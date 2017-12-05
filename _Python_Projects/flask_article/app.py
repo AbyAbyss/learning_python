@@ -300,10 +300,10 @@ def add_article():
 def edit_article(id):
     # cursor
     cur = mysql.connection.cursor()
-    # Get article
-    cur.execute("SELECT * FROM articles WHERE id = %s", [id])
+    # Get article                                         # TODO added author ..entering other users id will coz error 
+    cur.execute("SELECT * FROM articles WHERE id = %s and author = %s", [id, session['username']])
     article = cur.fetchone()
-
+    
     # get form
     form = ArticleForm(request.form)
 
@@ -344,7 +344,7 @@ def edit_article(id):
 def delete_article(id):
     cur = mysql.connection.cursor()
 
-    cur.execute("DELETE FROM articles WHERE id = %s", [id])
+    cur.execute("DELETE FROM articles WHERE id = %s and author = %s", [id, session['username']])
 
     mysql.connection.commit()
 
